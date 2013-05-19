@@ -139,4 +139,11 @@ b <- 1:5
 c <- c(2,4,5)
 ```
 
+# More advanced example
+
+  * Grab the repo at <https://github.com/glesica/r-talk>
+  * Read the code!
+  * Source `traffic.r`:
+
+    source('traffic.r', echo=TRUE)
 
