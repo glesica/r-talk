@@ -82,17 +82,30 @@ movie.titles <- function() {
 # This doesn't really work very well, possibly because link titles are often
 # sarcastic and/or non-descriptive.
 
-reddit.thinks <- function(str, sr='all', votes=TRUE, n=50) {
+# Estimate the sentiment of Reddit users toward a given topic.
+# Args:
+#   str: a search string to evaluate
+#   sr: the name of a subreddit to search
+#   n: number of results to use, max 100
+# Returns:
+#   a scalar in [-5, 5] representing sentiment
+reddit.thinks <- function(str, sr='all', n=50) {
   url <- str_join('http://reddit.com/',
                   str_join('r/', sr, '/search.json?'),
-                  str_join('limit=', min(n, 100)),
+                  'sort=top&restrict_sr=on',
+                  str_join('&limit=', min(n, 100)),
                   str_join('&q=', URLencode(str)))
+  print(url)
   # Fetch titles from Reddit in JSON format
   json.data <- suppressWarnings(fromJSON(file=url))
   # Harvest the titles from the parsed JSON
   titles <- sapply(json.data$data$children, function(x) {
     x$data$title
   })
+  # Make sure we have at least n results for consistency
+  if (length(titles) < n) {
+    stop(paste('too few search results (', length(titles), ')', sep=''))
+  }
   # Note that we're using an implicit return here
   mean(sentiment(titles))
 }
