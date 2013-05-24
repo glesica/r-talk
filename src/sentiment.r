@@ -95,7 +95,6 @@ reddit.thinks <- function(str, sr='all', n=50) {
                   'sort=top&restrict_sr=on',
                   str_join('&limit=', min(n, 100)),
                   str_join('&q=', URLencode(str)))
-  print(url)
   # Fetch titles from Reddit in JSON format
   json.data <- suppressWarnings(fromJSON(file=url))
   # Harvest the titles from the parsed JSON
