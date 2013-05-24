@@ -19,9 +19,14 @@
     * RStudio: <http://www.rstudio.com/>
   * Sample Data
     * Google Flu Trends: <http://www.google.org/flutrends/us/data.txt>
-    * Movie ratings <http://demo.lesica.com/movies.csv>
+    * Movie ratings
+    <https://github.com/glesica/r-talk/raw/master/data/movies.csv>
     * AFINN Corpus
-      <http://www2.imm.dtu.dk/pubdb/views/publication_details.php?id=6010>
+    <https://github.com/glesica/r-talk/raw/master/data/AFINN-111.txt>
+
+# Sample code / data
+
+<https://github.com/glesica/r-talk>
 
 # Let's talk tools - RStudio
 
@@ -86,17 +91,6 @@
 # R in thirty seconds - flow control
 
   * Conditional: `if (...) { ... } else { ... }` - else clause optional
-    * Be careful, this is a syntax error (newline before `else`):
-
-```{.r}
-if (...) {
-    ...
-}
-else {
-    ...
-}
-```
-
   * Loops:
     * `for (i in ...) { ... }`
     * `while (...) { ... }`
@@ -145,5 +139,6 @@ c <- c(2,4,5)
   * Read the code!
   * Source `traffic.r`:
 
-    source('traffic.r', echo=TRUE)
-
+```{.r}
+source('traffic.r', echo=TRUE)
+```
