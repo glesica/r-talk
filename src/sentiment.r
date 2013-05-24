@@ -103,8 +103,60 @@ reddit.thinks <- function(str, sr='all', n=50) {
   })
   # Make sure we have at least n results for consistency
   if (length(titles) < n) {
-    stop(paste('too few search results (', length(titles), ')', sep=''))
+    warning(str_join('too few search results (', length(titles), ')'))
   }
   # Note that we're using an implicit return here
   mean(sentiment(titles))
 }
+
+terms <- c('barack obama', 'eric holder', 'julian assange',
+           'sarah palin', 'kittens')
+#cores <- sapply(terms, reddit.thinks)
+
+# Now we try a variant that uses comment text instead of the link text.
+
+# Estimate the sentiment of Reddit users toward a given topic.
+# Args:
+#   str: a search string to evaluate
+#   sr: the name of a subreddit to search
+#   n: number of results to use, max 100
+#   depth: number of comments to evaluate for each search result
+#   rl: time between requests
+# Returns:
+#   a scalar in [-5, 5] representing sentiment
+reddit.thinks2 <- function(str, sr='all', n=10, depth=10, rl=0.1) {
+  # Do the initial search for entries
+  search.url <- str_join('http://reddit.com',
+                         '/r/', sr, '/search.json?',
+                         'sort=top&restrict_sr=on',
+                         '&limit=', min(n, 100),
+                         '&q=', URLencode(str))
+  search.data <- suppressWarnings(fromJSON(file=search.url))
+  # Create urls and compute scores for entries
+  entry.urls <- sapply(search.data$data$children, function(e) {
+    # Warn if there were too few comments
+    if (e$data$num_comments < depth) {
+      warning(str_join('too few comments (', e$data$num_comments, ')'))
+    }
+    str_join('http://reddit.com', e$data$permalink, '.json')
+  })
+  entry.scores <- sapply(entry.urls, function(u) {
+    Sys.sleep(rl) # Rate limit
+    entry.data <- suppressWarnings(fromJSON(file=u))
+    comments <- entry.data[[2]]$data$children[1:depth]
+    node.types <- sapply(comments, function(c) {
+      c$kind
+    })
+    comment.scores <- sapply(comments[node.types == 't1'], function(c) {
+      sentiment(c$data$body)
+    })
+    mean(comment.scores)
+  })
+  # Make sure we have at least n results for consistency
+  if (length(entry.scores) < n) {
+    warning(str_join('too few search results (', length(entry.scores), ')'))
+  }
+  return(mean(entry.scores))
+}
+
+#scores2 <- sapply(terms, reddit.thinks2)
