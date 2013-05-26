@@ -24,6 +24,12 @@
     * AFINN Corpus
     <https://github.com/glesica/r-talk/raw/master/data/AFINN-111.txt>
 
+# Installing R
+
+  * Linux
+    * Debian / Ubuntu: `sudo apt-get install r-base`
+    * Archlinux: `sudo pacman -S r`
+
 # Sample code / data
 
 <https://github.com/glesica/r-talk>
