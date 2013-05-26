@@ -29,6 +29,10 @@
   * Linux
     * Debian / Ubuntu: `sudo apt-get install r-base`
     * Archlinux: `sudo pacman -S r`
+    * Fedora: `sudo yum install R`
+    * Generic: <http://cran.rstudio.com/bin/linux/>
+  * Windows: <http://cran.rstudio.com/bin/windows/>
+  * Mac OS: <http://cran.rstudio.com/bin/macosx/>
 
 # Sample code / data
 
