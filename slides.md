@@ -34,9 +34,19 @@
   * Windows: <http://cran.rstudio.com/bin/windows/>
   * Mac OS: <http://cran.rstudio.com/bin/macosx/>
 
+# Installing RStudio
+
+<http://www.rstudio.com/ide/download/desktop>
+
+  * Packages available for Debian and Fedora
+  * Installers available for Windows and Mac OS X
+  * Tarball install also available
+
 # Sample code / data
 
 <https://github.com/glesica/r-talk>
+
+  * Build slides: `make slides`
 
 # Let's talk tools - RStudio
 
