@@ -12,17 +12,13 @@
     * By statisticians, for statisticians (this is important)
     * Includes a number of convenience libraries and tools
 
-# Up and running in one slide
+# Up and running in three slides
 
-  * Development Environment
-    * R Project: <http://www.r-project.org>
-    * RStudio: <http://www.rstudio.com/>
-  * Sample Data
-    * Google Flu Trends: <http://www.google.org/flutrends/us/data.txt>
-    * Movie ratings
-    <https://github.com/glesica/r-talk/raw/master/data/movies.csv>
-    * AFINN Corpus
-    <https://github.com/glesica/r-talk/raw/master/data/AFINN-111.txt>
+  * R Project: <http://www.r-project.org>
+  * RStudio: <http://www.rstudio.com/>
+    * Kick-ass IDE - I use it and I'm a die-hard Vim guy
+    * Especially good for exploration / interactive use
+    * Can also run in a browser
 
 # Installing R
 
@@ -31,8 +27,8 @@
     * Archlinux: `sudo pacman -S r`
     * Fedora: `sudo yum install R`
     * Generic: <http://cran.rstudio.com/bin/linux/>
-  * Windows: <http://cran.rstudio.com/bin/windows/>
   * Mac OS: <http://cran.rstudio.com/bin/macosx/>
+  * Windows: <http://cran.rstudio.com/bin/windows/>
 
 # Installing RStudio
 
@@ -42,11 +38,28 @@
   * Installers available for Windows and Mac OS X
   * Tarball install also available
 
-# Sample code / data
+# Sample code and data
 
 <https://github.com/glesica/r-talk>
 
-  * Build slides: `make slides`
+  * Build slides: `make slides` (or just use Pandoc)
+
+# Sample data credits
+
+  * Google Flu Trends: <http://www.google.org/flutrends/us/data.txt>
+  * Movie ratings
+  <https://github.com/glesica/r-talk/raw/master/data/movies.csv>
+  * AFINN Corpus
+  <https://github.com/glesica/r-talk/raw/master/data/AFINN-111.txt>
+
+# Useful resources
+
+  * <http://rseek.org/> - R-centric search engine (because googling for "R" is
+  maddening)
+  * <http://www.johndcook.com/R_language_for_programmers.html> - introduction to
+  R for programmers
+  * <http://www.computerworld.com/s/article/9239625/Beginner_s_guide_to_R_Introduction> -
+  just-published introduction to R with tons of links
 
 # Let's talk tools - RStudio
 
@@ -72,10 +85,10 @@
 
 # R in thirty seconds - variables
 
-  * Character
+  * Character (string)
   * Integer
   * Numeric
-  * Boolean
+  * Logical (boolean)
   * NA (missing value)
   * NULL (nothing)
 
