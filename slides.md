@@ -60,6 +60,7 @@
   R for programmers
   * <http://www.computerworld.com/s/article/9239625/Beginner_s_guide_to_R_Introduction> -
   just-published introduction to R with tons of links
+  * <http://www.codeschool.com/courses/try-r> - Code School course
 
 # Let's talk tools - RStudio
 
